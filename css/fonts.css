@@ -1,0 +1,14 @@
+/*Il vaut mieux télécharger des fonts standards comme par exemple les fonts de google dont vous pouvez trouver sur le site web 
+fonts.google.com 
+Pour les importer dans votre page web, vous avez deux possibilités :
+ajouter la règle d'importation inline des fonts en spécifiant leur URL
+@import url('https://fonts.googleapis.com/css?family....');
+ou copier le repertoire des fonts dans votre dossier et utiliser les règles @font-face 
+*/
+
+/*  font-family: Abel  */
+@font-face {
+    font-family: Questrial;
+    src: url('../fonts/Questrial/Questrial-Regular.ttf');
+}
+

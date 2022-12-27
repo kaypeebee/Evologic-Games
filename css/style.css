@@ -1,0 +1,647 @@
+/*
+    La règle @charset spécifie l'encodage des caractères utilisé dans la feuille de style. 
+    Elle doit être toujours ajoutée en premier dans la feuille de style.
+    UTF-8 est la norme Unicode qui défini un codage de caractères standard utilisé pour les communications électroniques.
+    */
+    @charset "UTF-8";
+
+    /*
+    La règle @import permet d'importer une autre feuille de style dans la feuille de style courante. 
+    La règle @import doit être toujours ajoutée en top du document css (mais après toute déclaration @charset).
+    */
+    /*Dans ce projet, on importe la feuille de style fonts.css qu'on a créé dans laquelle on a définit les règles font face 
+    pour importer les fonts téléchargés de fonts.google 
+    pour pouvoir manipuler la police et la mise en forme du texte du site web */
+    @import url('../css/fonts.css');
+
+
+    /* réaliser la mise en forme du document html et de son corps */
+
+/* sélectionner html et body */
+html, body{
+    margin: 0%; /*fixer la marge initiale du corps du document html à 0%*/
+    box-sizing: border-box;
+    /*
+        La propriété CSS box-sizing permet de spécifier comment calculer la largeur et la hauteur de l'élément.
+        En lui associant la valeur "border-box": cela permet d'inclure le remplissage (padding) et la bordure (border) dans la 
+        mesure de la largeur et la hauteur totales d'un élément 
+        padding: l'espace entre la bordure et le contenu de l'élément.
+        La largeur (width) et la hauteur (height) d'un élément sont calculé comme suit:
+        width + padding + border = actual width of an element
+        height + padding + border = actual height of an element
+        */
+        
+        overflow-x: hidden;
+        /* le contenu d'un élément peut dépasser les bords de l'élément.
+        Pour rendre ce dépassement invisible horizontalement :
+        on spécifie la propriété overflow, en lui associant la valeur hidden à la coordonnée x 
+        Pour rendre le dépassement invisible verticalement, on travaille avec la coordonnée y */
+}
+
+:root{
+    /*on peut créer des variables CSS pour les réutiliser plusieurs fois dans notre feuille de style*/
+    /* Syntaxe pour déclarer une variable CSS et associer une valeur:
+     --NomVariable:Valeur;*/
+
+
+    
+     /*      Theme colors        */
+    
+    /*pour éviter de chercher le code RGB à chaque fois dans la feuille de style,
+    on crée des variables globales comme suit*/
+   
+    --white: #ffffff;
+    --noir: #000000;
+    --dark-orange: #FF8C00;
+
+/*on peut récupérer des couleurs dégradées
+    du site web webgradients.com 
+    rechercher la couleur et copier la syntaxe*/
+    /* gradient color   */
+    --degrade: linear-gradient(#ad5389, #3c1053);
+
+    /*      theme font-family   */
+    --Questrial: 'Questrial', cursive;
+}
+
+
+/* ---------------- Classes globales ---------------*/
+/*pour la mise en forme globale à appliquer aux éléments du document globalement*/
+
+/*mise en forme de toutes les balises d'ancrage dans notre document html*/
+a{
+    text-decoration: none;
+        /*texte sans décotation : non surligné, non gras, non itallique*/
+    color: var(--dark-orange);
+}
+
+/*
+Flex layout est une mise en page unidimensionnelle à la fois - soit en ligne, soit en colonne. 
+Grid Layout est une mise en page bidimensionnelle, qui contrôle les colonnes et les lignes ensemble.
+*/
+
+/*
+Avec un Flex layout, les blocs se positionnent côte à côte. Flexbox nous permet d'agencer ces éléments dans le sens que l'on veut.
+*/
+
+/*mise en forme de tous les éléments de classe flex-row*/
+.flex-row{
+    display: flex; /*appliquer un layout de conteneur flexible */
+    flex-direction: row;  
+        /*tous les éléments du menu de navigation seront placés sur une même ligne*/ 
+        /*c.à.d. toutes les sous-divisions dans la division de base nav*/  
+    flex-wrap: wrap;
+        /*pour éviter le découpage et forcer le retour à la ligne des sous-éléments*/
+        /*ici, les sous-éléments sociaux du menu sont forcés de descendre à la ligne sous les sous éléments de la deuxième division, quand la fenêtre est petite*/
+    }
+
+ul{
+    list-style-type: none;
+}
+
+h1{
+    font-family: var(--Questrial);
+    font-size: 2.5rem;
+}
+
+h2{
+    font-family: var(--Questrial);
+}
+
+h3{
+    font-family: var(--Questrial);
+    font-size: 1.3rem;
+}
+
+button.btn{
+    border: var(--dark-orange);
+    border-radius: 2rem; /*rounded border*/
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    font-family: var(--Questrial);
+    cursor: pointer;
+}
+
+span{
+    font-family: var(--Questrial);
+}
+
+.container{
+    margin: 0.5vw;
+}
+
+
+p{
+    font-family: var(--Questrial);
+    color: var(--noir);
+}
+
+/* ------x------- Classes Globales -------x-------*/
+
+
+/*  ----- Comprendre les options de dimensionnement et les unités de mesures de CSS -----
+PX, EM et REM sont utilisés pour spécifier la taille de la police (font sizing)
+%, VW et VH sont plutôt utilisés pour la marge (margins), le remplissage (padding), et la largeur (width) et la hauteur (height).
+
+L'unité de mesure "rem" désigne "root em" ce qui veut dire la taille par rapport à l'élément racine (root) (balise HTML).
+L'unité de mesure "em" désigne la taille de la police de l'élément parent.
+L'unité de mesure "px" désigne Pixel. C'est une unité CSS couramment utilisée sur les sites Web. 
+px n'est pas évolutif, c'est une unité absolue. 
+em et rem sont des unités réactives (responsive).
+
+L’utilisation de PX peut être problématique pour les sites réactifs,
+mais ils sont utiles pour maintenir un dimensionnement cohérent pour certains éléments.
+Alors, si vous avez des éléments qui ne doivent pas être redimensionnés, utiliser PX est un bon choix.
+
+% par rapport à l’élément parent
+VW par rapport à la largeur de la fenêtre
+VH par rapport à la hauteur de la fenêtre
+       - V désigne viewport (la taille de l'écran de l'appareil: la fenêtre)
+       - W désigne width (largeur)
+       - H désigne height (hauteur)
+100VH représente 100% de la hauteur de la fenêtre
+
+Les unités relatives s’adaptent mieux sur différents appareils car elles peuvent augmenter et diminuer en fonction de la taille d’un autre élément.
+Contrairement à PX, les unités relatives telles que%, EM et REM sont mieux adaptées à une conception réactive (responsive).
+
+Dans la plupart des navigateurs, la taille de police par défaut est de 16 px. Les unités relatives calculent la taille à partir de cette base.
+1em = 16px (1 * 16)
+2em = 32px (2 * 16)
+.5em = 8px (.5 * 16)
+
+*/
+
+/* réaliser la mise en forme du menu de navigation */
+
+/* --------------- Barre de navigation ----------------- */
+
+/* sélectionner la classe qu'on a nommé nav dans le document html */
+.nav{
+    background: var(--white);
+        /*donner la couleur blanche au fond du menu de navigation*/
+    
+        padding: 0 2rem;
+        /* Associer la valeur 0 pour le top et bottom padding
+        et 2rem pour le padding de droite et gauche 
+         
+        */
+        
+
+        /*
+        pour créer un "collapsible navigation bar (navbar)" : un menu de navigation pliant
+        ce qui veit dire un menu qui est visible sur un grand écran
+        mais devient invisible sur un petit écran, peut être remplacé par un bouton toggler 
+        (bouton à bascule).
+        (Toggle button a deux options "sélectionné" ou "non sélectionné")
+        Quand on clique sur le bouton principal du menu : 
+        Bouton en Toggle mode : les sous-éléments du menu seront éffrondés (collapsed)/cachés
+        Bouton en Untoggle mode : le menu prend le mode extensible; il s'étend (expandable menu)
+        */
+
+    height: 0rem; /*hauteur iniatiale du menu en mode collapsed: 0 de la taille de la racine 
+    (de l'écran de l'appareil)*/ 
+    min-height: 8vh; /*hauteur minimale est 10% la hauteur de la fenêtre*/
+    overflow: hidden; /*pour ajouter un padding à droite et à gauche du menu */
+    transition: height 1s ease-in-out;
+        /*appliquer un effet de transition ease-in-out au menu d'une durée de 1s
+        ease-in : specifies a transition effect with a slow start 
+        ease-out : specifies a transition effect with a slow end */
+}
+
+.nav .nav-menu{    
+    justify-content: space-between;
+        /* espacer les éléments de la classe nav-menu de la classe nav
+        pour équilibrer l'espace entre les sous-divisions du menu de navigation de base
+        le premier sous-élément se place au début du côté gauche du menu,
+        le dernier sous-élément se place à la fin du menu,
+        les autres sous-éléments se placent au milieu,
+        tous sont également espacés*/
+}
+
+/*mise en forme de la division parent du bouton social toggle fa-bars*/
+.nav .toggle-collapse{
+    position: absolute;
+    top: 0%; /*positionnement top à 0%, tout au haut de la page*/
+    width: 90%; /*largeur de la division parent = 90% de la page*/
+    cursor: pointer;
+    display: none; /*pour cacher cette division*/
+        /*c.à.d. cacher le bouton social toggle fa-bars*/
+        /*on le rend visible quand la taille de l'écran est petite,
+        dans la requête @media only screen and (max-width:750px)*/
+}
+
+/*mise en forme de la sous-division bouton sociale toggle fa-bars*/
+.nav .toggle-collapse .toggle-icons{
+    display: flex;
+    justify-content: flex-end; /*aligner les icônes à droite*/
+    padding: 1.7rem 0;
+}
+
+.nav .toggle-collapse .toggle-icons i{
+    font-size: 1.4rem;
+    color: var(--noir);
+}
+
+/*cette classe est ajoutée pour augmenter la hauteur du menu toggle social*/
+.collapse{
+    height: 30rem;
+}
+
+.nav .nav-items{
+    display: flex;
+    margin: 0;
+}
+
+/*la mise en forme des hyperliens des sous-éléments Home, About Us, ..., Contact Us*/
+.nav .nav-items .nav-link{
+    padding: 1.6rem 1.6rem;
+    font-size: 1.1rem;
+    position: relative;
+    font-family: var(--Questrial);
+    font-size: 1.1rem;
+}
+
+/*la mise en forme quand on survol sur ces hyperliens des sous-éléments Home, Category, ..., Contact Us*/
+/*c.à.d. hover a link = survol sur un lien = on roule le curseur au cours de ce lien*/
+
+.nav .nav-items .nav-link:hover{
+    background-color: var(--noir); /*changer la couleur du fond de ces hypertextes*/
+}
+.nav .nav-items .nav-link:hover 
+a{
+    color: var(--white); /*changer la couleur de l'hypertexte*/
+}
+
+/*----mise en forme de l'hypertexte (le texte "Evologic Games" du menu de base)*/
+.nav .nav-brand a{
+    font-size: 1.6rem; 
+    padding: 1rem 0; /*1rem pour le padding du haut et du bas, 0 pour le padding de droite et de gauche */
+    display: block; /*pour ajouter du padding à "Evologic Games"*/
+    font-family: var(--Questrial);
+        /*pour utiliser les variables CSS qu'on a créé dans root,
+        on appelle la fonction var() avec le nom de la variable comme argument d'entrée*/
+        /*
+        font-family: var(--Lexend);
+        équivalent à
+        font-family: 'Abel', cursive;
+        */
+}
+
+.nav .nav-brand:hover a{
+    color: var(--noir);
+}
+
+
+/*----mise en forme des icônes sociales du menu de navigation de base*/
+.nav .social{
+    padding: 1.4rem 0
+}
+
+.nav .social i{
+    padding: 0 .2rem;
+}
+
+/*changer la couleur des icônes sociales quand on survol sur les liens*/
+.nav .social i:hover{
+    color: var(--noir);
+}
+
+/* -------x------- Barre de navigation ---------x------- */
+
+
+
+/* ----------------- Main Content----------- */
+
+/* --------------- Site title ---------------- */
+
+/*mise en forme de la sous-section titre de la section principale*/
+
+main .site-title {
+    background: url('../assets/Background.png');
+    /*afficher une image au fond de la section de classe site-title*/
+    
+    background-size: cover;/*couvre toute la division*/
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+main .site-title .site-background{
+    padding-top: 20rem;
+    text-align: center; /*aligner le texte au centre du document dans cette section*/
+    color: var(--dark-orange);
+}
+
+main .site-title h1{
+    font-family: var(--Questrial), bold;
+    font-size: 4rem;
+    margin: .3rem; /*la marge du haut, de bas, de droite et de gauche*/
+}
+
+/* --------x------ Site title --------x------- */
+
+
+/* --------------- Blog Carousel ------------ */
+/*mise en forme du carousel vertical (blog slider)*/
+
+main .blog{
+    background: url('../assets/white_background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+main .blog .blog-post{
+    padding-top: 3rem;
+}
+
+main .blog-post .blog-content{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 80%;
+    margin: 3rem 2rem;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+}
+
+main .blog-content .blog-title{
+    padding: 2rem 0;
+    color: var(--dark-orange);
+}
+
+main .blog-content .btn-blog{
+    padding: .7rem 2rem;
+    background: var(--dark-orange);
+    margin: .5rem;
+}
+/*mise en forme de la navigation des flèches Précédent et Suivant*/
+section .container .owl-nav{
+    position: absolute;
+    top: 0%;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.owl-nav .owl-prev .owl-nav-prev,
+.owl-nav .owl-next .owl-nav-next{
+    color: var(--dark-orange);
+    background: transparent;
+    font-size: 2rem;
+}
+
+.owl-theme .owl-nav [class*='owl-']:hover{
+    background: transparent;
+    color: var(--noir);
+}
+
+.owl-theme .owl-nav [class*='owl-']{
+    outline: none;
+}
+/* ---------x------ Blog Carousel ------x------- */
+
+
+
+/* ---------------- Site Content ----------------*/
+
+main .site-content{
+    display: grid;
+    position: relative;
+}
+
+main .post-content{
+    width: 100%;
+    
+}
+
+main .site-content .post-content > .post-image, .post-title{
+    padding: 1rem 10rem;
+    position: relative;
+}
+
+/*la barre d'information en bas du post*/
+main .site-content .post-content > .post-image .post-info{
+    background: var(--dark-orange);
+    padding: 1rem;
+    position: absolute;
+    bottom: 0%;
+    left: 20vw;
+    border-radius: 3rem;
+}
+
+main .site-content .post-content > .post-image > div{
+    overflow: hidden;
+}
+
+main .site-content .post-content > .post-image .img{
+    width: 100%;
+    transition: all 1s ease; /*effet de transition quand l'image s'affiche*/
+}
+
+/*mise en forme quand hover (survoler) sur l'image*/
+main .site-content .post-content > .post-image .img:hover{
+    transform: scale(1.3); /*augmenter la taille de l'image 1.3fois l'image*/
+}
+
+main .post-content .post-title a{
+    font-family: var(--Questrial);
+    font-size: 1.5rem;
+}
+
+.site-content .post-content .post-title .post-btn{
+    border-radius: 0;
+    padding: .7rem 1.5rem;
+    background: var(--dark-orange);
+}
+
+/* -------x-------- Site Content --------x-------*/
+
+/* ---------x------- Main Content -----x----- */
+
+
+/*---------------------Footer-------------------------------*/
+footer.footer{
+    height: 100%;
+    background: var(--noir);
+    position: relative;
+}
+
+footer.footer .container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+footer.footer .container > div{
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 3rem .9rem;
+}
+
+footer.footer .container h2{
+    color: var(--white);
+}
+
+footer.footer .container p{
+    color: var(--dark-orange);
+}
+
+footer.footer .newsletter .form-element{
+    background: var(--white);
+    display: inline-block;
+}
+
+footer.footer .newsletter .form-element input{
+    padding: .5rem 1.1rem;
+    border: none;
+    background: transparent;
+    color: white;
+    font-family: var(--Questrial);
+    font-size: 1rem;
+    width: 74%;
+}
+
+footer.footer .newsletter .form-element span{
+    background: var(--dark-orange);
+    padding: .5rem .7rem;
+    cursor: pointer;
+}
+
+footer.footer .newsletter .form-element:hover{
+    color: var(--white);
+}
+
+footer.footer .instagram div > img{
+    display: inline-block;
+    width: 25%;
+    height: 50%;
+    margin: .3rem .4rem;
+}
+
+footer.footer .follow div i{
+    color: var(--dark-orange);
+    padding: 0 .4rem;
+}
+
+footer.footer .follow div i:hover{
+    color: var(--white);
+}
+
+footer.footer .rights{
+    justify-content: center;
+    font-family: var(--Questrial);
+    color: var(--white);
+}
+
+
+footer.footer .rights h4 a{
+    color: var(--white);
+    font-family: var(--Questrial);
+    font-size: 1.2rem;
+}
+
+footer.footer .rights h4 a:hover{
+    color: var(--dark-orange);
+}
+
+footer.footer .rights h4 i:hover{
+    color: var(--dark-orange);
+}
+
+footer.footer .move-up{
+    position: absolute;
+    right: 6%;
+    top: 50%;
+}
+
+footer.footer .move-up span{
+    color: var(--dark-orange);
+}
+
+footer.footer .move-up span:hover{
+    color: var(--white);
+    cursor: pointer;
+}
+
+
+/*------------x-----------Footer----------------x-------------*/
+
+
+/*           Viewport less then or equal to 1130px                   */
+/*appliquer à l'écran si sa largeur est plus petite ou égale à 1130px*/
+
+@media only screen and (max-width: 1130px){
+    .site-content .post-content > .post-image .post-info{
+        left: 2rem !important;
+        bottom: 1.2rem !important;
+        border-radius: 0% !important;
+    }
+
+    .site-content .sidebar .popular-post .post-info{
+        display: none !important;
+    }
+
+    footer.footer .container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/*      x       Viewport less then or equal to 1130px    x     */
+
+
+
+/*              Viewport less then or equal to 750px            */
+
+/*si la largeur de l'écran est plus petite ou égale à 750px,
+appliquer la direction verticale (column) du layout Flex*/
+@media only screen and (max-width: 750px){
+    .nav .nav-menu, .nav .nav-items{
+        flex-direction: column;
+    }
+
+    .nav .toggle-collapse{
+        display: initial;/*afficher le bouton social toggle fa bars*/
+    }
+
+
+    main .site-content{
+        grid-template-columns: 100%;
+    }
+
+    footer.footer .container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+}
+
+
+/*        x      Viewport less then or equal to 750px       x     */
+
+
+/*              Viewport less then or equal to 520px            */
+
+@media only screen and (max-width: 520px){
+    main .blog{
+        height: 125vh;
+    }
+
+    .site-content .post-content > .post-image .post-info{
+        display: none;
+    }
+
+    footer.footer .container > div{
+        padding:  1rem .9rem !important;
+    }
+
+    footer .rights{
+        padding: 0 1.4rem;
+        text-align: center;
+    }
+
+    nav .toggle-collapse{
+        width: 80% !important;
+    }
+
+}
+
+/*        x      Viewport less then or equal to 520px       x     */

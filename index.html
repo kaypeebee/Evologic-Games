@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--pour appliquer le responsive design, on va ajouter la balise suivante-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ce code veut dire que la largeur de la 
+    fenêtre va être = la largeur de l'écran -->
+    <title>Evologic Games</title>
+
+    <!--Favicon-->
+    <link rel="icon" href="./assets/Evologic Games Logo.png"/>
+    
+    <!--Site description-->
+    <meta name=“description” content="Welcome to the official website for Evologic Games. Find all about 
+    your favourite games here.">
+
+    <!--Keywords-->
+    <meta name=“keywords” content="gaming, video games, mmorpg, ps5, xbox, pc, game design, ray-tracing">
+
+    <!--balises méta sociales-->
+    <meta property="og:title" content="Evologic Games">
+    <meta property="og:description" content="Welcome to the official website for Evologic Games. Find all about 
+    your favourite games here.">
+    <meta property="og:type" content="gaming">
+
+<!--Pour utiliser le fichier style.css qu'on a créé -->
+
+<!-- Déclarer dans la page HTML quelles CSS utiliser 
+        pour réaliser la mise en forme 
+        en mobilisant l'élément <link rel="stylesheet" href="nom-du-fichier-css"> dans la partie head 
+        L'attribut href (Hypertext Reference) est utilisé pour créer l'hyperlien
+        Dans cet attribut, spécifier l'adresse ou l'URL pour pointer vers le fichier css
+        ./css/all.css désigne le suivant:
+        ./ pour monter dans le répertoire au niveau au‑dessus (un niveau plus haut de ce document Index.html)
+        css/ puis descendre au repertoire css
+        all.css puis pointer vers le fichier all.css dans le repertoire css
+    -->
+
+    <!-- On va utiliser les fichiers suivants tels qu'ils sont dévéloppés par d'autres developpeurs et présents dans des l
+        ibrairies disponibles pour l'utilisation direct. 
+    all.css
+    owl.carousel.min.css
+    owl.theme.default.min.css
+    aos.css-->
+
+     <!-- Font Awesome Icons -->
+     <link rel="stylesheet" href="./css/all.css">
+
+     <!-- --------- Owl-Carousel ------------------->
+     <link rel="stylesheet" href="./css/owl.carousel.min.css">
+     <link rel="stylesheet" href="./css/owl.theme.default.min.css">
+ 
+     <!-- ------------ AOS Library ------------------------- -->
+     <link rel="stylesheet" href="./css/aos.css">
+ 
+     <!-- Pour notre projet, nous allons développer une feuille de style css personalisée
+         Style.css -->
+     <!-- Feuille de style personalisé (Custom Stylesheet)   -->
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+
+     <!-- C'est quoi l'attribut class qu'on ajoute dans chaque balise html :
+    L'attribut universel class indique une classe associée (ou une liste de classes associées) à l'élément courant.
+    Les classes permettent de manipuler les éléments, via CSS ou JavaScript 
+    en utilisant les sélecteurs de classe ou des fonctions telles que : document.getElementsByClassName()
+    -->
+    
+    
+    <!----------------- Navigation du site web (rubriques) ---------->
+    
+    
+    <!--Créer un menu de navigation en ajoutant l'élément <nav> -->
+    
+    <nav class="nav">
+    
+        <!-- la division suivante associe deux classes: nav-menu et flex-row (délimitées par un espace)-->
+        <div class="nav-menu flex-row">
+            <div class="nav-brand">
+                
+                <!-- la balise d'ancrage <a> est une balise HTML qui permet de définir un lien hypertexte-->
+                <!-- on spécifie # à l'attribut href parce que pour l'instant on ne va pas rediriger cette balise d'ancrage à 
+                    aucune autre page web. 
+                   Donc dans ce cas, en cliquant sur l'hypertexte "Blooger" # va recharger la page courante (Index.html)
+                Si vous souhaitez rediriger vers une nouvelle page web, remplacez # par l'URL de cette page web -->
+                
+                <a href="#">Evologic Games</a>
+                
+                <!-- NB: Au lieu d'ajouter un simple texte "Blooger" pour créer un hypertexte,
+                    vous pouvez ajouter une image, une icône ou autre type de hypermédia 
+                -->
+            </div> 
+            <!-- jusque là, on a créé un menu de navigation de base
+                mais pour l'instant il n'a aucun sous-élément/onglet ni icône de média sociaux... 
+            -->
+
+            
+            <div>
+                <ul class="nav-items">
+                    <li class="nav-link">
+                        <a href="#">Home</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Our vision</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Our team</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!--ajouter une nouvelle division dans le menu de navigation de base
+            pour créer les sous-éléments des médias sociaux,
+            créer une liste non ordonnée en utilisant la balise <ul>
+            et les balises <li> pour créer les sous-items de la liste
+            -->
+            
+            <div class="social">
+            <!-- associer la classe social à cette division -->
+                
+                
+                <a href="https://www.facebook.com/pranav.beeharry"><i class="fab fa-facebook-f"></i></a>
+                <!-- utiliser la balise <i> pour créer une icône-->
+                
+                <a href="https://www.instagram.com/pranavbeeharry/"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/PranavBeeharry"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.youtube.com/channel/UCv6DH86WO3_Ig3sZWtQDkPw"><i class="fab fa-youtube"></i></a>
+            </div>
+
+            <!-- Vous pouvez télécharger des icônes et logos sociaux gratuits du site web fontawesome.com de la librarie 
+                Free for Web-->
+           
+            <!--Dans notre cas, ce qu'on utilise de cette librarie sont le fichier all.css et le repertoire webfonts-->
+            
+            <!--A chaque fois, vous utilisez des fichiers d'une librairie disponible pour utilisation directe, 
+                vous devez lire la documentation de cette librairie pour comprendre comment utiliser et référencier 
+                ses éléments dans votre site web
+            
+            -->
+                
+            <!--Dans fontawesone.com, dans la documentation On the Web/Basic Use, on nous explique que 
+                pour référencier une icône sociale dans la balise <i> :
+                on ajoute le prefixe fa- (fab prefixe od brands Styling...)
+                puis on écrit le nom de l'icône
+                
+            -->
+            
+            <!--Vous pouvez de même utiliser le moteur de recherche dans Dans fontawesone.com, pour trouver la syntaxe
+                    par exemple: cliquer sur l'onglet icons et rechercher instagram, choisir un des résultats et 
+                    copier la syntaxe
+                        <i class="fab fa-instagram">
+                
+            -->
+
+
+        </div>
+    </nav>
+    <!-----x-------- Navigation du site web -------------x----->
+
+    <!----------------------------- Main Site Section ------------------------------>
+
+    <main> <!--la section principale-->
+
+        <!------------------------ Site Title ---------------------->
+        <!--sous-section titre-->
+    
+        <section class="site-title">
+            <div class="site-background">
+                <h1>Revolutionising the gaming experience</h1>
+            </div>
+        </section>
+    
+        <!------------x----------- Site Title ----------x----------->
+
+
+        <!--
+            Un post de blog est un article, une nouvelle, ou un guide publié dans la section de blog dans un site web. 
+            Un post de blog est typiquement spécifique à un thème bien précis ou une requête, 
+            généralement constitué de 600 à plus de 2 000 mots 
+            et contient d'autres types de médias tels que des images, des vidéos, des infographies et des graphiques interactifs.
+        -->
+
+
+    
+    
+        <!---------------------Blog Carousel---------------------------->
+
+        <!--sous-section du Carrousel Blog -->
+        <!--on va ajouter 4 post items dans ce carrousel Blog -->
+        
+        <section>
+            <div class="blog">
+                <div class="container">
+                    <div class="owl-carousel owl-theme blog-post">
+                        
+                        <!--post 1 du carrousel-->
+                        <div class="blog-content">
+                            <!--les attributs aos permet d'appliquer des effets de transition en affichant le post -->
+                            <!--ce post contient une image, un titre, un bouton et un span -->
+                            <img src="./assets/Blog-carousel/God of War.jpg" alt="God of War">
+                            <div class="blog-title">
+                                <button class="btn btn-blog"> Buy </button>
+                                <!--La différence entre span et div est qu'un élément span qui est ajouté inligne (en ligne) est généralement utilisé 
+                                    pour ajouter un petit morceau de HTML à l'intérieur d'une ligne (comme à l'intérieur d'un paragraphe) alors qu'un 
+                                    élément div (division) est une élément de bloc (ce qui est fondamentalement équivalent d'avoir un saut de ligne avant 
+                                    et après) est utilisé pour regrouper de plus gros morceaux de code.
+                                -->
+                            </div>                       
+                        </div>
+
+                        <!--post 2-->
+                        <div class="blog-content" >
+                            <img src="./assets/Blog-carousel/nfs.jpg" alt="Need For Speed Heat">
+                            <div class="blog-title">
+                                <button class="btn btn-blog"> Buy </button>
+                            </div>
+                        </div>
+
+                        <!--post 3-->
+                        <div class="blog-content" >
+                            <img src="./assets/Blog-carousel/horizon.jpg" alt="Horizon Zero Dawn">
+                            <div class="blog-title">
+                                <button class="btn btn-blog"> Buy </button>
+                            </div>
+                        </div>
+
+                        <!--post 4-->
+                        <div class="blog-content" >
+                            <img src="./assets/Blog-carousel/unchartered .jpg" alt="Unchartered">
+                            <div class="blog-title">
+                                <button class="btn btn-blog"> Buy </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!--ajouter les icônes des flèches Précédent et Suivant -->
+                    <div class="owl-navigation">
+                        <span class="owl-nav-prev"><i class="fas fa-long-arrow-alt-left"></i></span>
+                        <span class="owl-nav-next"><i class="fas fa-long-arrow-alt-right"></i></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-------x---------------- Blog Carousel -----------------------x------->
+
+
+        <!-- ---------------------- Site Content -------------------------->
+        <!--Sous-section contenu du site dans la section principale de la page web-->
+        <!--cette section contient 4 posts-->
+
+        <section class="container">
+            <div class="site-content">
+                <div class="posts">
+
+                    <!--Créer la division du Blog Post 1-->
+                    <div class="post-content" >
+                        <div class="post-image">
+                            <div>
+                                <img src="./assets/Blog-posts/Football_post 1.jpeg" class="img" alt="Football">
+                            </div>
+                            <div class="post-info flex-row">
+                                <!--ajouter l'icône Calendar-->
+                                <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;June 14, 2020</span>
+                                <span>&nbsp;&nbsp;68 Comments</span>
+                            </div>
+                        </div>
+                        <div class="post-title">
+                            <a href="#">Evologic's next football game aims to be the best one ever.</a>
+                            <p>How good can a gootball game get? How to choose between optimising the 
+                                gameplay experience or the graphics? Well, what if you did not even have to choose?
+                                After working on it for the last 5 years, Evologic Games is proud to announce 
+                                that their next football game might just be the best one designed ever. 
+                            </p>
+                            <button class="btn post-btn">Read More &nbsp; <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!--Créer la division du Blog Post 2-->
+                    <div class="post-content" >
+                        <div class="post-image">
+                            <div>
+                                <img src="./assets/Blog-posts/MMORPG_post 2.jpeg" class="img" alt="MMORPG">
+                            </div>
+                            <div class="post-info flex-row">
+                                <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;December 16, 2020</span>
+                                <span>&nbsp;&nbsp;77 Comments</span>
+                            </div>
+                        </div>
+                        <div class="post-title">
+                            <a href="#">The world's most realistic MMORPG, by Evologic Games.</a>
+                            <p>Not every MMORPG have plenty of mythical creatures, magicians, cyborgs or 
+                                time-travellers. In some games, the reality is shown just as it is; maybe 
+                                with some improvements. The genre of Realistic MMORPG includes different 
+                                simulators, shooter-based games, video games with strategy elements and 
+                                many other types of projects. The main feature of these MMORPGs is the 
+                                realistic mechanics, setting and visual style. Telling the long story short, 
+                                it’s just a genre of games in the setting of historical-right reality. This is
+                                the challenge that Evologic Games has promised to fulfill.
+                            </p>
+                            <button class="btn post-btn">Read More &nbsp; <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!--Créer la division du Blog Post 3-->
+                    <div class="post-content" >
+                        <div class="post-image">
+                            <div>
+                                <img src="./assets/Blog-posts/Gaming_post 3.jpeg" class="img" alt="Gaming setup">
+                            </div>
+                            <div class="post-info flex-row">
+                                <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;May 19, 2021</span>
+                                <span>&nbsp;&nbsp;52 Comments</span>
+                            </div>
+                        </div>
+                        <div class="post-title">
+                            <a href="#">Graphics or gameplay?</a>
+                            <p>In the world of modern, large-scale game development, absolute photorealism 
+                                and similarly immersive environments seem to be the overall goal. The gameplay 
+                                doesn’t seem to change at that same pace, but that’s always been a major 
+                                factor in the eternal struggle in video games: graphics vs. gameplay. 
+                                Is one better?
+                            </p>
+                            <button class="btn post-btn">Read More &nbsp; <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>             
+
+                    <!--Créer la division du Blog Post 4-->
+                    <div class="post-content" >
+                        <div class="post-image">
+                            <div>
+                                <img src="./assets/Blog-posts/Blog post 4.jpeg" class="img" alt="Joystick">
+                            </div>
+                            <div class="post-info flex-row">
+                                <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;November 21, 2021</span>
+                                <span>&nbsp;&nbsp;35 Comments</span>
+                            </div>
+                            </div>
+                                <div class="post-title">
+                                    <a href="#">Haptic feedback ; much more important than you think.</a>
+                                    <p>When Sony put haptics in the DualShock controller, more than 20 years ago, experienced players were 
+                                        excited to see haptics becoming mainstream. There was still a big difference between rumble and the 
+                                        high-end experience we were used to. In the real world, haptics in a consumer device has always been an 
+                                        exercise in trade-offs with low budgets. That’s is why here at Evologic Games, we are ecstatic with Sony’s
+                                        newly announced PlayStation 5 controller that has not just high definition (HD) vibration but also 
+                                        kinesthetic triggers. This new controller represents a whole new level of the tactile experience. 
+                                        As a game developer, why should we care about this new controller’s haptic capabilities? What can this 
+                                        capability do to enhance your game and increase user immersion? Let’s unpack this a little bit. 
+                                    </p>
+                                    <button class="btn post-btn">Read More &nbsp; <i class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-----------x----------Site Content------------------x--------------------->
+    
+
+
+    </main>
+    
+    <!---------------x------------- Main Site Section ---------------x-------------->
+
+
+    <!----------------------------- Footer ------------------------------------------>
+    <!--Bas de page-->
+    <footer class="footer">
+        <div class="container">
+            <div class="about-us" >
+                <h2>About us</h2>
+                <p>Evologic Games is a French video game company, founded in 2020. 
+                </p>
+            </div>
+            <div class="newsletter" >
+                <h2>Newsletter</h2>
+                <p>Stay updated about us</p>
+                <div class="form-element">
+                    <input type="text" placeholder="Email"><span><i class="fas fa-chevron-right"></i></span>
+                </div>
+            </div>
+            <div class="instagram" >
+                <h2>Instagram</h2>
+                <div class="flex-row">
+                    <img src="./assets/instagram/controller-orange.jpeg" alt="insta1">
+                    <img src="./assets/instagram/gaming-gear.jpeg" alt="insta2">
+                    <img src="./assets/instagram/triger.jpeg" alt="insta3">
+                </div>
+                <div class="flex-row">
+                    <img src="./assets/instagram/keyboard.jpeg" alt="insta4">
+                    <img src="./assets/instagram/skull.png" alt="insta5">
+                    <img src="./assets/instagram/robot.jpeg" alt="insta6">
+                </div>
+            </div>
+            <div class="follow" >
+                <h2>Follow us</h2>
+                <p>Let us be social</p>
+                <div>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+        <div class="rights flex-row">
+            <h4 class="text-gray">
+                Copyright ©2021 All rights reserved | Designed by
+                <a href="https://www.linkedin.com/in/pranav-beeharry/" target="_black">Kesh Pranav Beeharry&nbsp;<i class="fab fa-linkedin-in"></i></a>
+            </h4>
+        </div>
+        <div class="move-up">
+            <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
+        </div>
+    </footer>
+
+    <!-- -------------x------------- Footer --------------------x------------------- -->
+
+
+    <!-- JQuery est une bibliothèque JavaScript libre et multiplateforme créée pour faciliter l'écriture de scripts côté client dans le code HTML des pages web.-->
+    <!-- Télécharger le code de la page https://code.jquery.com/jquery-3.6.0.slim.min.js
+    et copier le dans un fichier Jquery3.4.1.min.js que vous créez dans le dossier de votre site web-->
+    <!--Vous n'avez pas besoin de comprendre de code de ce fichier
+    -->
+    
+    <!-- Jquery Library file -->
+    <!--Lier les fichiers jquery au document html-->
+    <script src="./js/Jquery.v3.4.1.min.js"></script>
+
+    
+    <!--Vous pouvez télécharger des libraries jquery implémentant le carrousel (slideshow)
+    On va utiliser la librarie Owl Carousel
+    Copier le fichier owl.carousel.min.js dans le repertoire de votre site web
+    Cette librarie utilise jquery pour créer un carrousel
+    Lisez le fichier jquery owl.carousel.min.js au document html
+    Copier aussi les fichier owl.carousel.min.css et owl.theme.default.min.css dans le repoertoire de votre site web
+    Lier ces css à votre fichier html dans la balise <head>--> 
+    
+    <!-- --------- Owl-Carousel js ------------------->
+    <script src="./js/owl.carousel.min.js"></script>
+
+
+
+    <!--pour utiliser le fichier main.js qu'on a créé-->
+    <script src="./js/main.js"></script>
+
+</body>
+
+</html> 
